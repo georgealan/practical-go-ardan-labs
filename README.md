@@ -26,10 +26,6 @@
   <a href="https://kodyweb.com.br">
     <img alt="Feito por George Alan Rufo" src="https://img.shields.io/badge/feito%20por-George-%237519C1">
   </a>
-  
-  <a href="https://medium.com/kodyweb">
-    <img alt="Blog Medium KodyWeb" src="https://img.shields.io/badge/Blog-KodyWeb-black?style=flat&logo=Medium">
-  </a>
 </p>
 
 <h4 align="center">
@@ -50,7 +46,6 @@ Index Content
 
 Repository for store my work, study in this course, exercises, practice and so on.
 
----
 
 ## 🛠 Technologies
 
@@ -70,10 +65,9 @@ Initially, this project uses the following technologies, this list may grow duri
  <sub><b>George Alan</b></sub></a> <a href="https://www.linkedin.com/in/george-alan-fullstack-developer/" title="George Alan Linkedin">🚀</a>
  <br />
 
-[![Medium Badge](https://img.shields.io/badge/-KodyWeb-black?style=flat-square&labelColor=black&logo=medium&logoColor=white&link=https://medium.com/kodyweb)](https://medium.com/kodyweb) [![Linkedin Badge](https://img.shields.io/badge/-George-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/george-alan-fullstack-developer/)](https://www.linkedin.com/in/george-alan-fullstack-developer/) 
+[![Linkedin Badge](https://img.shields.io/badge/-George-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/george-alan-fullstack-developer/)](https://www.linkedin.com/in/george-alan-fullstack-developer/) 
 [![Gmail Badge](https://img.shields.io/badge/-georgealanrufo@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:georgealanrufo@gmail.com)](mailto:georgealanrufo@gmail.com) [![Instagram Badge](https://img.shields.io/badge/-georgealan-a43b9d?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/georgealanrufo/)](https://www.instagram.com/georgealanrufo/)
 
----
 
 ## 📝 License
 
