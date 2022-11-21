@@ -7,16 +7,27 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
-	sig, err := sha1Sum("gzipped.tar.gz")
+	sig, err := sha1Sum("sha1//http.log.gz") // I have to specify a directory folder for work.
+	if err != nil {
+		log.Fatalf("error: %s", err)
+	}
+	fmt.Println(sig)
+
+	sig, err = sha1Sum("sha1//http.log.txt")
 	if err != nil {
 		log.Fatalf("error: %s", err)
 	}
 	fmt.Println(sig)
 }
 
+/*
+if file names ends with .gz the: $ cat http.log.gz | gunzip | sha1sum
+else: $ cat http.log.gz | sha1sum
+*/
 func sha1Sum(fileName string) (string, error) {
 	// idiom: acquire a resource, check for error, defer release
 	file, err := os.Open(fileName)
@@ -24,10 +35,15 @@ func sha1Sum(fileName string) (string, error) {
 		return "", nil
 	}
 	defer file.Close() // deferred are called in LIFO order
+	var r io.Reader = file
 
-	r, err := gzip.NewReader(file)
-	if err != nil {
-		return "", err
+	if strings.HasSuffix(fileName, ".gz") {
+		gzFile, err := gzip.NewReader(file)
+		if err != nil {
+			return "", err
+		}
+		defer gzFile.Close()
+		r = gzFile
 	}
 
 	//io.CopyN(os.Stdout, r, 100)
