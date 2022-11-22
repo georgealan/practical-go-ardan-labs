@@ -39,6 +39,55 @@ func main() {
 	for _, m := range ms {
 		fmt.Println(m)
 	}
+
+	k := Jade
+	fmt.Println("k:", k)
+	fmt.Println("key:", Key(17))
+
+	p1.FoundKey(Jade)
+	fmt.Println(p1.Keys)
+	p1.FoundKey(Copper)
+	fmt.Println(p1.Keys)
+
+}
+
+/*
+	Exercise
+
+- Add a "Keys" field to player which is a slice of Key
+- Add a "FoundKey(k Key) error" method to player which will add k to Key if it's not there
+- Err if k is not one of the known keys
+*/
+func (p *Player) FoundKey(k Key) error {
+	if k < Jade || k >= invalidKey {
+		return fmt.Errorf("invalid key: %#v", k)
+	}
+	if !containsKey(p.Keys, k) {
+		p.Keys = append(p.Keys, k)
+	}
+	return nil
+}
+
+func containsKey(keys []Key, k Key) bool {
+	for _, k2 := range keys {
+		if k2 == k {
+			return true
+		}
+	}
+	return false
+}
+
+func (k Key) String() string {
+	switch k {
+	case Jade:
+		return "jade"
+	case Copper:
+		return "copper"
+	case Crystal:
+		return "crystal"
+	}
+
+	return fmt.Sprintf("<Key %d>", k)
 }
 
 // Rule of thumb: Accept interfaces, return types
@@ -76,6 +125,16 @@ const (
 	maxY = 600
 )
 
+// Go's version of enum
+const (
+	Jade Key = iota + 1
+	Copper
+	Crystal
+	invalidKey // internal (not exported)
+)
+
+type Key byte
+
 type mover interface {
 	Move(x, y int)
 }
@@ -83,6 +142,7 @@ type mover interface {
 type Player struct {
 	Name string
 	Item // Embed Item
+	Keys []Key
 }
 
 // Item is an item in the game
@@ -90,3 +150,7 @@ type Item struct {
 	X int
 	Y int
 }
+
+/*
+TODO Implement sortByDistance(players []Player, x, y int)
+*/
