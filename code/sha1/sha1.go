@@ -11,13 +11,13 @@ import (
 )
 
 func main() {
-	sig, err := sha1Sum("sha1//http.log.gz") // I have to specify a directory folder for work.
+	sig, err := sha1Sum("sha1/http.log.gz") // I have to specify a directory folder for work.
 	if err != nil {
 		log.Fatalf("error: %s", err)
 	}
 	fmt.Println(sig)
 
-	sig, err = sha1Sum("sha1//http.log.txt")
+	sig, err = sha1Sum("sha1/http.log.txt")
 	if err != nil {
 		log.Fatalf("error: %s", err)
 	}

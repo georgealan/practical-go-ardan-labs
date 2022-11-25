@@ -117,9 +117,3 @@ func wordFrequency(r io.Reader) (map[string]int, error) {
 
 	return freqs, nil
 }
-
-/*
-TODO Change mostCommon to return the most common n words
- (e.g. func montCommon(r io.Reader, n int) ([]string, error))
- and write the return in each line like this: "This word: (example), appeared in the text 10 times"
-*/
