@@ -66,7 +66,6 @@ func maxWords(freqs map[string]int, n int) (map[string]int, error) {
 		if counter == n {
 			break
 		}
-
 		maxNumber, maxWord := 0, ""
 		for word, count := range freqs {
 			if count > maxNumber {
@@ -86,4 +85,6 @@ func maxWords(freqs map[string]int, n int) (map[string]int, error) {
  TODO Change mostCommon to return the most common n words
   (e.g. func montCommon(r io.Reader, n int) ([]string, error))
   and write the return in each line like this: "This word: (example), appeared in the text 10 times"
+Here I have to use a Map for the return because with a slice I dont have te values of appeared quantity
+and with an map it was easy.
 */
