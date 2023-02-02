@@ -69,6 +69,34 @@ func main() {
 	// Adding a time lapsing, th egourotine will appear
 	time.Sleep(10 * time.Millisecond)
 	shadowExample()
+
+	fmt.Println("////// sleepSort() function //////")
+	values := []int{15, 8, 42, 16, 4, 23}
+	fmt.Println(sleepSort(values))
+}
+
+/*
+For every value "n" in values, spin a goroutine that will:
+- sleep "n" milliseconds
+- send "n" over a channel
+In the function body, collect values from the channel to a slice and return it.
+*/
+func sleepSort(values []int) []int {
+	ch := make(chan int)
+	for _, n := range values {
+		n := n
+		go func() {
+			time.Sleep(time.Duration(n) * time.Millisecond)
+			ch <- n
+		}()
+	}
+
+	var out []int
+	for range values {
+		n := <-ch
+		out = append(out, n)
+	}
+	return out
 }
 
 func shadowExample() {
